@@ -1,0 +1,12 @@
+<h1><%= @list.name %></h1>
+
+<p><% @list.bookmarks.each do |bookmark|%>
+  <li ><%= bookmark.comment %></li>
+<%= link_to 'Delete Bookmark', bookmark_path(bookmark), method: :delete %>
+<% end %>
+
+<%= link_to 'Create bookmark', new_list_bookmark_path(@list) %>
+<%= link_to 'Back to lists', lists_path %>
+
+
+<%# <%= link_to "Add a new task", new_task_path % %>
