@@ -1,6 +1,32 @@
-<h1> Lists </h1>
+<div class="banner mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/7513412/pexels-photo-7513412.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);">
+  <div class="container">
+    <h1><strong>Welcome to the world of Cinema!</strong>!</h1>
+    <p>Sit back, relax, and enjoy the ride..</p>
+  </div>
+</div>
 
-<% @lists.each do |list| %>
-  <h2><%= link_to list.name, list_path(list) %></h2>
-<% end %>
-<%= link_to 'Create a new list', new_list_path(@list) %>
+
+<div class="container">
+  <div class="cards_title">
+    <h1 style="font-size: 40px"> My Lists </h1>
+    <%= link_to "Add movie list", new_list_path, class: "btn btn-gradient text-align: center" %>
+  </div>
+  <div class="cards">
+    <%# <div class="row"> %>
+      <% @lists.each do |list| %>
+        <%= link_to list_path(list), class:"text-decoration-none" do %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('classic.jpg')%>)">
+            <h2><%= list.name %></h2>
+          </div>
+        <% end %>
+      <% end %>
+    <%# </div> %>
+  </div>
+</div>
+
+
+<%# url(<%= asset_path('list_background.jpg') %>
+<%# <% @lists.each do |list| %>
+  <%# <h2><%= link_to list.name, list_path(list)</h2> %>
+<%# <% end %>
+<%# <%= link_to 'Create a new list', new_list_path(@list) %>

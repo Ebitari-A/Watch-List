@@ -11,10 +11,12 @@ class BookmarksController < ApplicationController
 
   # As a user, I can add a new bookmark
   def new
+    # @list = List.find(params[:list_id])
     @bookmark = Bookmark.new
   end
 
   def create
+    # @list = List.find(params[:list_id])
     @bookmark = Bookmark.new(bookmark_params)
     @bookmark.list = @list
     if @bookmark.save
@@ -24,21 +26,11 @@ class BookmarksController < ApplicationController
     end
   end
 
-  # # As a user, I can edit a task (mark as completed / update title & details)
-  # def edit
-  #   @task = Task.find(params[:id])
-  # end
-
-  # def update
-  #   @task.update(task_params)
-  #   redirect_to task_path(@task)
-  # end
-
   # As a user, I can remove a bookmark
   def destroy
     @bookmark = Bookmark.find(params[:id])
     @bookmark.destroy
-    redirect_to list_path(@bookmark.list)
+    redirect_to list_path(@bookmark.list), status: :see_other
   end
 
   # private

@@ -1,5 +1,5 @@
 <h1> Create a bookmark! </h1>
-<%= simple_form_for [@list, @bookmark]  do |f| %>
+<%= simple_form_for [@list, @bookmark] do |f| %>
   <%= f.association :movie %>
   <%= f.input :comment %>
   <%= f.button :submit %>
